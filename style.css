@@ -1,0 +1,481 @@
+/* Thai: Kittithada (assets/fonts) — Thin 35 / Light 45 / Roman 55 / Medium 65 / Bold 75 */
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL239pro.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL246pro.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL240pro.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL241pro.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL242pro.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL243pro.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL244pro.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL247pro.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL245pro%203.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+@font-face {
+  font-family: "Kittithada";
+  src: url("assets/fonts/PSL248pro.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0E00-0E7F;
+  size-adjust: 140%; /* Kittithada draws small; match Fira Sans visually */
+}
+
+:root {
+  --green: #00625C;
+  --green-dark: #00625C;
+  --red: #CC2229;
+  --orange-1: #ffb21a;
+  --orange-2: #f26a1b;
+  --ink: #272525;
+  --muted: #272525;
+  --bg-light: #f2f2f2;
+  --white: #fff;
+  /* Fira Sans has no Thai glyphs, so Thai text falls through to Kittithada */
+  --font-head: "Fira Sans", "Kittithada", sans-serif;
+  --font-body: "Fira Sans", "Kittithada", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e6e9e8;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.red { color: var(--red); }
+
+/* Placeholder: show a label behind any image slot until the real file exists */
+[data-label] { position: relative; }
+[data-label]:not(:has(img))::before {
+  content: attr(data-label);
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  padding: 4px; text-align: center;
+  font: 500 12px/1.2 var(--font-head);
+  color: #7a8a86;
+  background: repeating-linear-gradient(45deg, #dfe5e3 0 8px, #e9eeec 8px 16px);
+}
+
+/* Check-in-circle mark */
+.check {
+  display: inline-block;
+  width: 1em; height: 1em;
+  margin-right: .3em;
+  vertical-align: -0.12em;
+  border-radius: 50%;
+  background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%231f8fd6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 75% no-repeat;
+}
+
+/* ---------- Preloader ---------- */
+body.is-loading { overflow: hidden; }
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: linear-gradient(180deg, #0f6553 0%, var(--green) 60%, var(--green-dark) 100%);
+  transition: opacity .5s ease, visibility .5s ease;
+}
+.preloader.is-hidden { opacity: 0; visibility: hidden; }
+
+.preloader-logo {
+  width: min(200px, 50vw);
+  animation: preloader-pulse 1.4s ease-in-out infinite;
+}
+
+.preloader-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255, 255, 255, .25);
+  border-top-color: var(--orange-1);
+  border-radius: 50%;
+  animation: preloader-spin .8s linear infinite;
+}
+
+@keyframes preloader-spin { to { transform: rotate(360deg); } }
+@keyframes preloader-pulse { 50% { opacity: .6; transform: scale(.96); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader-logo,
+  .preloader-spinner { animation-duration: 3s; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(180deg, #00625C 0%, var(--green) 60%, var(--green-dark) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: clamp(16px, 4vw, 32px) 16px clamp(18px, 4vw, 30px);
+}
+
+.brand {
+  margin: 0;
+  font: bold clamp(56px, 16vw, 112px)/0.95 var(--font-head);
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  height: fit-content;
+}
+
+.brand-i {
+  display: inline-block;
+  width: 18px;
+  margin: 3px 0.06em;
+}
+.brand-i img {width: 100%;height: 100%;object-fit: contain;z-index: 2;position: relative;}
+
+.hero-tag {
+  margin: 8px 0 2px;
+  font: 600 clamp(18px, 4.6vw, 30px)/0 var(--font-head);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.hero-tag img{
+  width:25px;
+  height:25px;
+}
+
+.hero-claim {
+  margin: 0;
+  font: 600 clamp(22px, 6vw, 40px)/1.25 var(--font-head);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .35);
+}
+.hero-claim strong {
+  font-weight: 700;
+  font-size: 1.3em;
+  background: #DA802E;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* text-shadow would paint over the gradient-clipped text, so use drop-shadow instead */
+  text-shadow: none;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+}
+
+.hero-sub {
+  margin: 0;
+  font: 700 clamp(24px, 6.6vw, 44px)/1.2 var(--font-head);
+  text-shadow: 0 3px 4px rgba(0, 0, 0, .6), 0 4px 14px rgba(0, 0, 0, .45);
+}
+
+/* ---------- Daily pain ---------- */
+/* bg-daily.jpg holds the sky (top ~31%) and the four activity photos */
+.daily {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1524 / 654;
+  background: #4aa6ee url("assets/img/bg-daily.jpg") center bottom / 100% auto no-repeat;
+}
+
+.daily-head {
+  text-align: center;
+  padding: clamp(6px, 2vw, 16px) 12px 0;
+}
+.daily-head h2 {
+  margin: 0;
+  font: 700 clamp(24px, 6.8vw, 50px)/1.1 var(--font-head);
+  color: #272525;
+}
+.daily-head h2 em { font-style: normal; color: var(--red); }
+.daily-head p {
+  margin: 2px 0 0;
+  font: 600 clamp(8px, 2.7vw, 19px)/1.3 var(--font-head);
+}
+.daily-head p b { color: var(--green); font-weight: 700; }
+
+.activities {
+  list-style: none;
+  margin: auto 0 0;
+  padding: clamp(14px, 4vw, 30px) 0 clamp(4px, 1vw, 8px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.92) 55%);
+}
+
+.caption {
+  display: flex; align-items: center; gap: 5px;
+  padding: 0 4px;
+  font-family: var(--font-head);
+  line-height: 1.15;
+}
+.caption b {display: block;font-size: clamp(10px, 2vw, 16px);font-weight: 600;}
+.caption small { display: block; font-size: clamp(7px, 1.6vw, 11px); color: var(--muted); }
+
+.icon {
+  flex: 0 0 auto;
+  width: clamp(20px, 5vw, 36px); aspect-ratio: 1;
+  border-radius: 50%;
+  background: #222 center / 58% auto no-repeat;
+}
+.icon-run { background-image: url("assets/img/icons/icon-run.svg"); }
+.icon-laptop { background-image: url("assets/img/icons/icon-nb.svg"); }
+.icon-home { background-image: url("assets/img/icons/icon-home.svg"); }
+.icon-mountain { background-image: url("assets/img/icons/icon-mt.svg"); }
+
+/* ---------- Product ---------- */
+.product {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 34%;
+  align-items: center;
+  background: #F7F7F7;
+  padding: clamp(18px, 4vw, 36px) 0 clamp(18px, 4vw, 36px) clamp(12px, 3vw, 28px);
+  min-height: 240px;
+}
+
+.label-box {
+  margin: 0 auto 14px;
+  max-width: 92%;
+  padding: 10px 12px;
+  background: #00625C;
+  color: var(--white);
+  text-align: center;
+  font: 600 clamp(18px, 4.6vw, 30px)/1.2 var(--font-head);
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.label-box img{
+  width: 25px
+}
+.check-light { background-color: transparent; border: 2px solid var(--white); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%2367c7ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+
+.product-text { text-align: center; }
+
+.lead {
+  margin: 0 0 10px;
+  font: 600 clamp(13px, 3.4vw, 22px)/1.45 var(--font-head);
+}
+.lead .red { font-weight: 700; }
+
+.dose {
+  margin: 0 0 12px;
+  font: 700 clamp(13px, 3.4vw, 22px)/1.3 var(--font-head);
+}
+
+.bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  font: 500 clamp(12px, 3.1vw, 20px)/1.5 var(--font-head);
+}
+.bullets li { position: relative; padding-left: 1.1em; }
+.bullets li::before {
+  content: "";
+  position: absolute; left: 0.2em; top: 0.62em;
+  width: 0.36em; height: 0.36em;
+  border-radius: 50%;
+  background: var(--red);
+}
+.bullets .red { font-weight: 700; }
+
+.product-img {
+  align-self: stretch;
+  min-height: 220px;
+  margin-right: 0;
+  position: absolute;
+  /* sizes scale with the screen; max values match the 760px layout */
+  right: min(20px, 2.6vw);
+  bottom: max(-90px, -11.8vw);
+}
+.product-img img {
+  width: auto;
+  height: min(480px, 71vw);
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
+  transform: rotate(
+12deg); /* top leans right */
+}
+
+/* ---------- Where to buy ---------- */
+.buy {
+  /* image already has the green tint and the phone/map on its right edge */
+  background: var(--green-dark) url("assets/img/bg-where.jpg") right center / cover no-repeat;
+  color: var(--white);
+  padding: clamp(14px, 3.5vw, 28px) 0 clamp(14px, 3.5vw, 28px) clamp(12px, 3vw, 28px);
+  /* sit above the tilted bottle that overflows .product */
+  position: relative;
+  z-index: 1;
+}
+
+.buy-inner {
+  display: grid;
+  grid-template-columns: 1fr 26%;
+  align-items: end;
+  gap: 8px;
+}
+
+.buy h2 {
+  margin: 0;
+  display: flex; align-items: center; justify-content: center; gap: .25em;
+  font: 700 clamp(22px, 6vw, 42px)/1.1 var(--font-head);
+}
+.buy h2 b { font-weight: 700; }
+.buy h2 em {font-style: normal;color: #EF1416;}
+
+.pin {
+  width: auto; height: 1.15em;
+}
+
+.buy-text > p {
+  margin: 4px 0 12px;
+  text-align: center;
+  font: 500 clamp(11px, 2.6vw, 17px)/1.3 var(--font-head);
+  opacity: .95;
+}
+
+/* box hugs the widest logo row; rows of 3 / 4 / 4 */
+.stores {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(10px, 2.4vw, 18px) clamp(12px, 3vw, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--white);
+  border-radius: 18px;
+}
+.stores ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: clamp(6px, 1.6vw, 12px);
+}
+.stores li { height: clamp(12px, 3.8vw, 30px); margin: clamp(3px, .8vw, 6px) 0; }
+/* square logos look small at the shared height, so give them more */
+.stores li[data-label="Xta"],
+.stores li[data-label="P&F"] { height: clamp(18px, 5.8vw, 46px); }
+.stores img { height: 100%; width: auto; }
+
+/* ---------- Video ---------- */
+.video { background: #000; }
+.video video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 445px) {
+  /* keep activity titles on one line; "เดินทาง/ ท่องเที่ยว" is the longest */
+  .caption { gap: 3px; padding: 0 2px; }
+  .caption b { font-size: 2.3vw; white-space: nowrap; }
+}
+@media (max-width: 420px) {
+  .product { grid-template-columns: 1fr 30%; }
+  .buy-inner { grid-template-columns: 1fr 22%; }
+  .stores li[data-label]:not(:has(img))::before { font-size: 9px; }
+}
+
+.hero-title { margin: 0; line-height: 0; }
+
+.img-brand{
+  margin-left: 50%;
+  transform: translate(-50%);
+  width: 190px;
+}
+
+.mcin-rotate{}

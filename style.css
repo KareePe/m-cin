@@ -365,7 +365,7 @@ body.is-loading { overflow: hidden; }
   border-radius: 50%;
   background: var(--red);
 }
-.bullets .blue { font-weight: 700; color: #4bb7ee; }
+.bullets .blue {font-weight: 700;color: #00a9ff;}
 
 .product-img {
   align-self: stretch;

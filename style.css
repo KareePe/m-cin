@@ -365,7 +365,7 @@ body.is-loading { overflow: hidden; }
   border-radius: 50%;
   background: var(--red);
 }
-.bullets .red { font-weight: 700; }
+.bullets .blue { font-weight: 700; color: #4bb7ee; }
 
 .product-img {
   align-self: stretch;
@@ -409,7 +409,7 @@ body.is-loading { overflow: hidden; }
   display: flex; align-items: center; justify-content: center; gap: .25em;
   font: 700 clamp(22px, 6vw, 42px)/1.1 var(--font-head);
 }
-.buy h2 b { font-weight: 700; }
+.buy h2 b { font-weight: 900; }
 .buy h2 em {font-style: normal;color: #EF1416;}
 
 .pin {
@@ -479,3 +479,77 @@ body.is-loading { overflow: hidden; }
 }
 
 .mcin-rotate{}
+/* ---------- Floating CTA ---------- */
+.float-cta {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 900; /* below the preloader */
+  display: flex;
+  flex-direction: column-reverse; /* first link sits at the bottom */
+  gap: 12px;
+}
+.float-cta__btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  background: var(--cta-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+  transition: transform .2s ease;
+  animation: cta-pop .5s cubic-bezier(.34, 1.56, .64, 1) backwards;
+}
+.float-cta__btn--line { --cta-color: #43cc63; }
+.float-cta__btn--fb { --cta-color: #1063d0; animation-delay: .12s; }
+
+/* expanding ring behind each button */
+.float-cta__btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--cta-color);
+  animation: cta-ring 2s ease-out infinite;
+}
+.float-cta__btn--fb::before { animation-delay: 1s; }
+
+/* icon gives a little wiggle every few seconds */
+.float-cta__btn img,
+.float-cta__btn svg {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  animation: cta-wiggle 4s ease-in-out infinite;
+}
+.float-cta__btn--fb img,
+.float-cta__btn--fb svg { animation-delay: 2s; }
+
+.float-cta__btn:hover,
+.float-cta__btn:focus-visible { transform: scale(1.12); }
+.float-cta__btn:active { transform: scale(.95); }
+
+@keyframes cta-pop {
+  from { transform: scale(0); opacity: 0; }
+}
+@keyframes cta-ring {
+  0%   { transform: scale(1);   opacity: .6; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+@keyframes cta-wiggle {
+  0%, 80%, 100% { transform: rotate(0) scale(1); }
+  84% { transform: rotate(-14deg) scale(1.1); }
+  88% { transform: rotate(12deg) scale(1.1); }
+  92% { transform: rotate(-8deg) scale(1.05); }
+  96% { transform: rotate(4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-cta__btn,
+  .float-cta__btn::before,
+  .float-cta__btn img,
+  .float-cta__btn svg { animation: none; }
+}

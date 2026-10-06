@@ -69,3 +69,6 @@ node_modules/
 .dataconnect
 .firebaserc
 firebase.json
+
+# WordPress plugin build output
+dist/

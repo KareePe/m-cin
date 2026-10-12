@@ -50,6 +50,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=34">
+
+  <!-- LINE Tag Base Code -->
+  <!-- Do Not Modify -->
+  <script>
+  (function(g,d,o){
+    g._ltq=g._ltq||[];g._lt=g._lt||function(){g._ltq.push(arguments)};
+    var h='https://d.line-scdn.net';
+    var s=d.createElement('script');s.async=1;
+    s.src=o||h+'/n/line_tag/public/release/v1/lt.js';
+    var t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
+      })(window, document);
+  _lt('init', {
+    customerType: 'lap',
+    tagId: 'd07cfe37-c2a9-4d97-a861-b88d9bf33ea5'
+  });
+  _lt('send', 'pv', ['d07cfe37-c2a9-4d97-a861-b88d9bf33ea5']);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://tr.line.me/tag.gif?c_t=lap&t_id=d07cfe37-c2a9-4d97-a861-b88d9bf33ea5&e=pv&noscript=1" />
+  </noscript>
+  <!-- End LINE Tag Base Code -->
 </head>
 <body class="is-loading">
 <!-- Preloader: hidden by the script at the bottom once the page has loaded -->
@@ -186,6 +208,15 @@
         else video.pause();
       });
     }, { threshold: 0.5 }).observe(video);
+  })();
+
+  // LINE Tag conversion: fire when the user taps the LINE chat button
+  (function () {
+    var btn = document.querySelector('.float-cta__btn--line');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      _lt('send', 'cv', { type: 'Conversion' }, ['d07cfe37-c2a9-4d97-a861-b88d9bf33ea5']);
+    });
   })();
 </script>
 </body>

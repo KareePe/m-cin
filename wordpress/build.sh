@@ -42,6 +42,12 @@ $mcn = esc_url( plugins_url( 'assets', __FILE__ ) );
 
   <link rel="preload" as="image" href="<?php echo $mcn; ?>/img/mcin-hero.svg">
   <link rel="preload" as="image" href="<?php echo $mcn; ?>/img/bg-daily.jpg">
+
+EOF
+# LINE Tag Base Code จาก <head> ของ index.html (template นี้มี <head> ของตัวเอง เลยต้องดึงมาแยก)
+sed -n '/<!-- LINE Tag Base Code -->/,/<!-- End LINE Tag Base Code -->/p' "$ROOT/index.html" >> "$T"
+if ! grep -q "_lt('init'" "$T"; then echo "ERROR: ไม่พบ LINE Tag Base Code ใน index.html" >&2; exit 1; fi
+cat >> "$T" <<'EOF'
   <?php wp_head(); ?>
 </head>
 <body <?php body_class( 'is-loading' ); ?>>
